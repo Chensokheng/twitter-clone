@@ -6,7 +6,7 @@
 
 2. Register
 
-- [ ] build UI
+- [x] build UI
 - [ ] authentication with Github
 - [ ] authentication with Google
 - [ ] store user info in firestore
