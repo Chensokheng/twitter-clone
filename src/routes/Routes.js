@@ -8,7 +8,7 @@ import {
 import ProtectRoute from './Protected.routes';
 import PublicRoute from './Public.routes';
 import Home from '../page/Home';
-import Register from '../page/Register';
+import Register from '../page/register/Register';
 export default function Routes({ auth }) {
   return (
     <Router>

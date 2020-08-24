@@ -7,8 +7,11 @@
 2. Register
 
 - [x] build UI
-- [ ] authentication with Github
-- [ ] authentication with Google
-- [ ] store user info in firestore
+- [x] authentication with Github
+- [x] authentication with Google
+- [ ] state
+
 - [ ] User stay login
+- [ ] user logout
 - [ ] loading component
+- [ ] refactor
