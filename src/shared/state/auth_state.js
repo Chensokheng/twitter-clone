@@ -6,7 +6,7 @@ const authReducer = (state, { type, payload }) => {
   switch (type) {
     case 'UPDATE_AUTH':
       return {
-        isAuth: true,
+        isAuth: payload,
       };
     default:
       throw new Error();

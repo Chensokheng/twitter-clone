@@ -8,12 +8,11 @@ import {
 import ProtectRoute from './Protected.routes';
 import PublicRoute from './Public.routes';
 import Home from '../page/Home';
-import Register from '../page/auth/view/Register';
-import useAuthState from '../shared_hook/useAuthState';
+import Register from '../page/authentication/view/Register';
+import useAuthProvider from '../shared/hook/useAuthProvider';
 export default function Routes() {
-  const [authState, _] = useAuthState();
+  const [authState, _] = useAuthProvider();
   const { isAuth } = authState;
-
   return (
     <Router>
       <Switch>

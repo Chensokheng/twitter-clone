@@ -1,16 +1,14 @@
-import React, { useReducer } from 'react';
-import { authReducer, authState } from './shared_state/auth_state';
-import { testReducer, testState } from './shared_state/test_state';
+import React, { createContext, useReducer } from 'react';
+import { authReducer, authState } from './shared/state/auth_state';
 
-const InjectProvider = ({ children }) => {
+export default function InJectProvider({ children }) {
   const authProvider = useReducer(authReducer, authState);
-  const testProvider = useReducer(testReducer, testState);
+
   return (
-    <InjectContext.Provider value={{ authProvider, testProvider }}>
+    <InjectContext.Provider value={{ authProvider }}>
       {children}
     </InjectContext.Provider>
   );
-};
-export const InjectContext = React.createContext();
+}
 
-export default InjectProvider;
+export const InjectContext = createContext();

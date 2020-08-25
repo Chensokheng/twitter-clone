@@ -2,13 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import InjectProvider from './injection';
-
+import InJectProvider from './injection';
 ReactDOM.render(
   <React.StrictMode>
-    <InjectProvider>
+    <InJectProvider>
       <App />
-    </InjectProvider>
+    </InJectProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

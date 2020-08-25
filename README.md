@@ -9,9 +9,9 @@
 - [x] build UI
 - [x] authentication with Github
 - [x] authentication with Google
-- [ ] state
-
+- [x] state
 - [ ] User stay login
 - [ ] user logout
+
 - [ ] loading component
 - [ ] refactor

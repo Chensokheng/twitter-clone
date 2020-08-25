@@ -1,9 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import { register } from '../../../../service/auth_service';
 import { githubAuth, googleAuth } from '../../../../config/firebase-config';
-import useCreateUser from '../../hook/useRegisterAuth';
+import useRegisterUser from '../../hook/useRegisterUser';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -37,11 +36,10 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContainerLogin() {
   const classes = useStyles();
-  const createUser = useCreateUser();
-
+  const registerUser = useRegisterUser();
   return (
     <div className={classes.container}>
-      <div className={classes.box} onClick={() => createUser(githubAuth)}>
+      <div className={classes.box} onClick={() => registerUser(githubAuth)}>
         <img
           src={process.env.PUBLIC_URL + '/assets/github.png'}
           alt="github"
@@ -52,7 +50,7 @@ export default function ContainerLogin() {
           <Typography className={classes.text}>Github</Typography>
         </div>
       </div>
-      <div className={classes.box} onClick={() => createUser(googleAuth)}>
+      <div className={classes.box} onClick={() => registerUser(googleAuth)}>
         <img
           src={process.env.PUBLIC_URL + '/assets/google.png'}
           alt="github"

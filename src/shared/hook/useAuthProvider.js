@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { InjectContext } from '../injection';
+import { InjectContext } from '../../injection';
 
-const useAuthState = () => {
+const useAuthProvider = () => {
   const { authProvider } = useContext(InjectContext);
   return authProvider;
 };
 
-export default useAuthState;
+export default useAuthProvider;

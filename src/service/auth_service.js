@@ -5,7 +5,6 @@ const register = (provider) => {
     .auth()
     .signInWithPopup(provider)
     .then((result) => {
-      console.log(result);
       return result;
     });
 };
