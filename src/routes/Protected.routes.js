@@ -6,7 +6,7 @@ export default function ProtectRoute({ auth, component: Component, ...rest }) {
   return (
     <Route
       {...rest}
-      render={() => (auth ? <Component /> : <Redirect to="/home" />)}
+      render={() => (auth ? <Component /> : <Redirect to="/register" />)}
     />
   );
 }

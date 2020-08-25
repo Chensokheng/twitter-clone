@@ -8,8 +8,12 @@ import {
 import ProtectRoute from './Protected.routes';
 import PublicRoute from './Public.routes';
 import Home from '../page/Home';
-import Register from '../page/register/Register';
-export default function Routes({ auth }) {
+import Register from '../page/auth/view/Register';
+import useAuthState from '../shared_hook/useAuthState';
+export default function Routes() {
+  const [authState, _] = useAuthState();
+  const { isAuth } = authState;
+
   return (
     <Router>
       <Switch>
@@ -17,11 +21,11 @@ export default function Routes({ auth }) {
           path="/"
           exact
           render={() =>
-            !auth ? <Redirect to="/register" /> : <Redirect to="/home" />
+            !isAuth ? <Redirect to="/register" /> : <Redirect to="/home" />
           }
         />
-        <ProtectRoute path="/home" component={Home} />
-        <PublicRoute path="/register" component={Register} />
+        <ProtectRoute path="/home" component={Home} auth={isAuth} />
+        <PublicRoute path="/register" component={Register} auth={isAuth} />
       </Switch>
     </Router>
   );
