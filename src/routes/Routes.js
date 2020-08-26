@@ -7,8 +7,8 @@ import {
 } from 'react-router-dom';
 import ProtectRoute from './Protected.routes';
 import PublicRoute from './Public.routes';
-import Home from '../page/home/view/Home';
-import Register from '../page/authentication/view/Register';
+import Home from '../features/home/view/Home';
+import Register from '../features/authentication/view/Register';
 import useAuthProvider from '../shared/hook/useAuthProvider';
 export default function Routes() {
   const [authState, _] = useAuthProvider();

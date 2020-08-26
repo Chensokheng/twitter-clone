@@ -13,4 +13,11 @@
 - [x] User stay login
 - [x] user logout
 - [x] loading component
-- [ ] refactor
+- [x] refactor
+
+3. User Info
+
+- [ ] store user info in firestore
+- [ ] layout
+- [ ] create tweet
+- [ ]

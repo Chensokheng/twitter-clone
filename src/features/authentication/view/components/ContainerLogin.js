@@ -1,8 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import { githubAuth, googleAuth } from '../../../../config/firebase-config';
 import useRegisterUser from '../../hook/useRegisterUser';
+import content from '../../content';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -39,28 +39,20 @@ export default function ContainerLogin() {
   const registerUser = useRegisterUser();
   return (
     <div className={classes.container}>
-      <div className={classes.box} onClick={() => registerUser(githubAuth)}>
-        <img
-          src={process.env.PUBLIC_URL + '/assets/github.png'}
-          alt="github"
-          width="60px"
-          height="60px"
-        />
-        <div className={classes.textContainer}>
-          <Typography className={classes.text}>Github</Typography>
-        </div>
-      </div>
-      <div className={classes.box} onClick={() => registerUser(googleAuth)}>
-        <img
-          src={process.env.PUBLIC_URL + '/assets/google.png'}
-          alt="github"
-          width="60px"
-          height="60px"
-        />
-        <div className={classes.textContainer}>
-          <Typography className={classes.text}>Google</Typography>
-        </div>
-      </div>
+      {content.authMethods.map((auth, index) => {
+        return (
+          <div
+            className={classes.box}
+            onClick={() => registerUser(auth.method)}
+            key={index}
+          >
+            <img src={auth.img} alt="github" width="60px" height="60px" />
+            <div className={classes.textContainer}>
+              <Typography className={classes.text}>{auth.text}</Typography>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }

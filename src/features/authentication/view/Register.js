@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Particles from 'react-particles-js';
 import ContainerLogin from './components/ContainerLogin';
-
+import content from '../content';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
@@ -32,17 +32,11 @@ export default function Register() {
   return (
     <div className={classes.root}>
       <div>
-        <h1 className={classes.title}>Register</h1>
+        <h1 className={classes.title}>{content.title}</h1>
         <ContainerLogin />
-        <Typography className={classes.desc}>
-          The most secure and easy authentication
-        </Typography>
+        <Typography className={classes.desc}>{content.desc}</Typography>
       </div>
-      <img
-        src={process.env.PUBLIC_URL + '/assets/remote-team.svg'}
-        alt=""
-        width="500px"
-      />
+      <img src={content.mainImg} alt="" width="500px" />
       <Particles
         className={classes.canvas}
         params={{
