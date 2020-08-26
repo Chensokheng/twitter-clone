@@ -10,8 +10,7 @@
 - [x] authentication with Github
 - [x] authentication with Google
 - [x] state
-- [ ] User stay login
-- [ ] user logout
-
-- [ ] loading component
+- [x] User stay login
+- [x] user logout
+- [x] loading component
 - [ ] refactor

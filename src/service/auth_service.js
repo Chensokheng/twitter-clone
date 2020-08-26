@@ -9,4 +9,8 @@ const register = (provider) => {
     });
 };
 
-export { register };
+const signOut = async () => {
+  await firebase.auth().signOut();
+};
+
+export { register, signOut };
