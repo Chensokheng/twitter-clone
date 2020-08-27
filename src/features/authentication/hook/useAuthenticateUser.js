@@ -6,9 +6,19 @@ const useAuthenticateUser = () => {
   const authService = new AuthService();
 
   const authenticateUser = async (provider) => {
-    const res = await authService.authenticateUser(provider);
-
-    authDispatch({ type: 'UPDATE_AUTH', payload: true });
+    const { res, msg } = await authService.authenticateUser(provider);
+    if (res) {
+      authDispatch({ type: 'UPDATE_AUTH', payload: true });
+      authDispatch({
+        type: 'UPDATE_ALERT_MESSAGE',
+        payload: { isAlert: true, message: msg },
+      });
+    } else {
+      authDispatch({
+        type: 'UPDATE_ALERT_MESSAGE',
+        payload: { isAlert: true, message: msg },
+      });
+    }
   };
   return authenticateUser;
 };

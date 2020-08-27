@@ -18,8 +18,8 @@
 3. User Info
 
 - [x] refacotr
-- [ ] handle error when user can't login
-- [ ] snackbar
+- [x] handle error when user can't login
+- [x] snackbar
 
 - [ ] store user info in firestore
 - [ ] security rule for firebase
