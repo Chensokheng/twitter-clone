@@ -2,7 +2,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
 import Particles from 'react-particles-js';
-import ContainerLogin from './components/ContainerLogin';
+import ContainerAuth from './components/ContainerAuth';
 import content from '../content';
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -26,14 +26,18 @@ const useStyles = makeStyles((theme) => ({
     zIndex: '-1',
     background: '#16202C',
   },
+  snackbar: {
+    background: 'blue',
+    position: 'absolute',
+  },
 }));
-export default function Register() {
+export default function Authentication() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
       <div>
         <h1 className={classes.title}>{content.title}</h1>
-        <ContainerLogin />
+        <ContainerAuth />
         <Typography className={classes.desc}>{content.desc}</Typography>
       </div>
       <img src={content.mainImg} alt="" width="500px" />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Typography } from '@material-ui/core';
-import useRegisterUser from '../../hook/useRegisterUser';
+import useAuthenticateUser from '../../hook/useAuthenticateUser';
 import content from '../../content';
 
 const useStyles = makeStyles((theme) => ({
@@ -34,16 +34,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ContainerLogin() {
+export default function ContainerAuth() {
   const classes = useStyles();
-  const registerUser = useRegisterUser();
+  const authenticateUser = useAuthenticateUser();
   return (
     <div className={classes.container}>
       {content.authMethods.map((auth, index) => {
         return (
           <div
             className={classes.box}
-            onClick={() => registerUser(auth.method)}
+            onClick={() => authenticateUser(auth.method)}
             key={index}
           >
             <img src={auth.img} alt="github" width="60px" height="60px" />

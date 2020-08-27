@@ -8,7 +8,7 @@ import {
 import ProtectRoute from './Protected.routes';
 import PublicRoute from './Public.routes';
 import Home from '../features/home/view/Home';
-import Register from '../features/authentication/view/Register';
+import Authentication from '../features/authentication/view/Authentication';
 import useAuthProvider from '../shared/hook/useAuthProvider';
 export default function Routes() {
   const [authState, _] = useAuthProvider();
@@ -20,11 +20,19 @@ export default function Routes() {
           path="/"
           exact
           render={() =>
-            !isAuth ? <Redirect to="/register" /> : <Redirect to="/home" />
+            !isAuth ? (
+              <Redirect to="/authentication" />
+            ) : (
+              <Redirect to="/home" />
+            )
           }
         />
         <ProtectRoute path="/home" component={Home} auth={isAuth} />
-        <PublicRoute path="/register" component={Register} auth={isAuth} />
+        <PublicRoute
+          path="/authentication"
+          component={Authentication}
+          auth={isAuth}
+        />
       </Switch>
     </Router>
   );
