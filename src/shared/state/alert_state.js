@@ -1,5 +1,6 @@
 const alertState = {
-  isAlert: true,
+  isAlert: false,
+  isError: false,
   message: 'default',
 };
 
@@ -9,6 +10,12 @@ const alertReducer = (state, { type, payload }) => {
       return {
         ...state,
         isAlert: false,
+      };
+    case 'ALERT_USER':
+      return {
+        isAlert: true,
+        message: payload.message,
+        isError: payload.isError,
       };
     default:
       throw new Error();

@@ -7,6 +7,9 @@ class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         return result;
+      })
+      .catch((e) => {
+        throw new Error(e.message);
       });
   };
 
