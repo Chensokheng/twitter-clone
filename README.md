@@ -21,8 +21,8 @@
 - [x] handle error when user can't login
 - [x] snackbar
 
-- [ ] store user info in firestore
-- [ ] security rule for firebase
+- [x] store user info in firestore
+- [x] security rule for firebase
 
 - [ ] layout
 - [ ] create tweet
