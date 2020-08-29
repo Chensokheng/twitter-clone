@@ -11,8 +11,14 @@ const useAuthenticateUser = () => {
   const authenticateUser = async (provider) => {
     authService
       .authenticateUser(provider)
-      .then((res) => {
-        setUpUserProfile(res);
+      .then(async (res) => {
+        await setUpUserProfile(res);
+
+        alertDispatch({
+          type: 'ALERT_USER',
+          payload: { message: 'Successfull', isError: false },
+        });
+        authDispatch({ type: 'UPDATE_AUTH', payload: true });
         // alert user succesfull
       })
       .catch((e) => {
@@ -33,13 +39,6 @@ const useAuthenticateUser = () => {
       date: new Date(),
     };
     await userService.setUpProfile(userInfo);
-    alertDispatch({
-      type: 'ALERT_USER',
-      payload: { message: 'Successfull', isError: false },
-    });
-    authDispatch({ type: 'UPDATE_AUTH', payload: true });
-
-    // call the user service to set the userInfo
   };
 
   return authenticateUser;
