@@ -12,8 +12,6 @@ const useAuthenticateUser = () => {
     authService
       .authenticateUser(provider)
       .then(async (res) => {
-        await setUpUserProfile(res);
-
         alertDispatch({
           type: 'ALERT_USER',
           payload: { message: 'Successfull', isError: false },
@@ -29,16 +27,6 @@ const useAuthenticateUser = () => {
         });
         // update alert
       });
-  };
-
-  const setUpUserProfile = async (res) => {
-    const userService = new UserService(res.user.uid);
-    const userInfo = {
-      avartaUrl: res.user.photoURL,
-      username: res.user.displayName,
-      date: new Date(),
-    };
-    await userService.setUpProfile(userInfo);
   };
 
   return authenticateUser;
